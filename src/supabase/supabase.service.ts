@@ -64,4 +64,16 @@ export class SupabaseService {
 
         return data;
     }
+
+    async getAllUsers(): Promise<any> {
+        const { data, error } = await this.supabase
+            .from('User')
+            .select("*");
+
+        if (error) {
+            throw new Error(`Error fetching users: ${error.message}`);
+        }
+
+        return data;
+    }
 }

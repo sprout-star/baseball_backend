@@ -8,6 +8,10 @@ export class AppService {
   constructor(private readonly supabaseService: SupabaseService) {}
 
   async createUser(createUserDto: CreateUserDto): Promise<any> {
-    return this.supabaseService.createUser(createUserDto);
+    return await this.supabaseService.createUser(createUserDto);
+  }
+
+  async getAllUsers(): Promise<any> {
+    return await this.supabaseService.getAllUsers();
   }
 }
